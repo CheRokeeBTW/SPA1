@@ -51,6 +51,14 @@ export default function ProductsList(){
     const createdProducts = useSelector((state: RootState) => state.products.products);
 
   console.log(games)
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // This code only runs on the client side
+    setIsClient(true);
+  }, []);
+
+
 
   useEffect(() => {
     axios

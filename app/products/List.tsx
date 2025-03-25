@@ -1,5 +1,8 @@
+'use client'
+
 import styled from 'styled-components';
 import { ReactNode } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -26,5 +29,12 @@ interface ListProps {
 }
 
 export const List: React.FC<ListProps> = ({ children }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // This code only runs on the client side
+    setIsClient(true);
+  }, []);
+
   return <Wrapper>{children}</Wrapper>;
 };

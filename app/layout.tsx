@@ -5,6 +5,8 @@ import "./globals.css";
 import { Inter } from 'next/font/google';
 import { Provider } from 'react-redux';
 import { store } from './redux/store/store';
+import React, { useEffect, useState } from 'react';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,10 +23,21 @@ const geistMono = Geist_Mono({
 
 
 export default function RootLayout({
+
+  
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // This code only runs on the client side
+    setIsClient(true);
+  }, []);
+
+
   return (
     <html lang="en">
       <head>

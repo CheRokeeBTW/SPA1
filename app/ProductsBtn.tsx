@@ -1,3 +1,5 @@
+'use client';
+
 import CreateNewCard from './products/components/CreateNew';
 import ShowAllCards from './products/components/AllCards'
 

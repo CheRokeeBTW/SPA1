@@ -1,29 +1,16 @@
-'use client';
+'use client'
 
-import { Routes ,Route } from 'react-router-dom';
-import ProductsList from "./products/page";
-import { BrowserRouter } from 'react-router-dom';
-import ProductBtn from "./ProductsBtn";
-import styled from 'styled-components';
-
-const Body = styled.div`
-  width: 100vh;
-  height : 100vh;
-  align-content:center;
-  text-align:center;
-  margin:auto;
-`;
+import { usePathname } from 'next/navigation';
+import ProductBtn from './ProductsBtn';
+import ProductsList from './products/page';
 
 export default function Home() {
+  const pathname = usePathname();
 
   return (
-    <Body>
-    <BrowserRouter>
-      <Routes>
-      <Route path="/" element = {<ProductBtn/>} />
-        <Route path="/products" element = {<ProductsList/>} />
-      </Routes>
-      </BrowserRouter>
-    </Body>
-);
+    <div>
+      {pathname === '/' && <ProductBtn />}
+      {pathname === '/products' && <ProductsList />}
+    </div>
+  );
 }
