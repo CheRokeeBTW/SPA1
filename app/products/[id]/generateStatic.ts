@@ -1,27 +1,14 @@
-// import axios from "axios";
-
-// export async function generateStaticParams() {
-//     // Fetch the list of products from your API or Redux store
-//     const response = await axios.get("https://thingproxy.freeboard.io/fetch/https://www.mmobomb.com/api1/games");
-//     const products = response.data;
-  
-//     // Return a list of dynamic params (product ids) for pre-rendering
-//     const paths = products.map((product: any) => ({
-//       id: product.id.toString(), // Ensure 'id' is a string
-//     }));
-  
-//     return paths.map((params:any) => ({
-//       params,
-//     }));
-//   }
-
 import axios from 'axios';
 
 export async function generateStaticParams() {
   try {
-    const response = await axios.get(
-      'https://thingproxy.freeboard.io/fetch/https://www.mmobomb.com/api1/games'
-    );
+    const response = await axios.get('https://mmo-games.p.rapidapi.com/games', {
+      headers: {
+        'X-RapidAPI-Key': '2aebb80693msh933786e73da56d5p1a2cbajsnd03f5955141c', 
+        'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com',
+      },
+    });
+
     const products = response.data;
 
     return products.map((product: any) => ({

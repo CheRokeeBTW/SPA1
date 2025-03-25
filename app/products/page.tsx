@@ -54,15 +54,22 @@ export default function ProductsList(){
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // This code only runs on the client side
     setIsClient(true);
   }, []);
 
 
 
   useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '2aebb80693msh933786e73da56d5p1a2cbajsnd03f5955141c', 
+        'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com' 
+      }
+    };
+  
     axios
-      .get('https://thingproxy.freeboard.io/fetch/https://www.mmobomb.com/api1/games')
+      .get('https://mmo-games.p.rapidapi.com/games', options)
       .then(({ data }) => setGames(data))
       .catch(err => console.error('Fetch Error:', err));
   }, [createdProducts]);

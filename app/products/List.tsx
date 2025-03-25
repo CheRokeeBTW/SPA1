@@ -32,7 +32,6 @@ export const List: React.FC<ListProps> = ({ children }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // This code only runs on the client side
     setIsClient(true);
   }, []);
 

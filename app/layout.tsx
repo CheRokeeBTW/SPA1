@@ -33,7 +33,6 @@ export default function RootLayout({
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // This code only runs on the client side
     setIsClient(true);
   }, []);
 

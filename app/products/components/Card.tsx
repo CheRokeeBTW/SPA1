@@ -83,7 +83,6 @@ const ImageButton = styled.button<{ liked: boolean }>`
   transition: background-color 0.3s;
 `;
 
-// Types for the component props
 interface InfoItem {
   title: string;
   description: string;
