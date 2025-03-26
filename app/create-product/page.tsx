@@ -78,7 +78,7 @@ const CreateProduct = () => {
     }
   
     const newProduct = {
-      id: String(Date.now()),  // Ensure the ID is a string
+      id: String(Date.now()), 
       title,
       short_description: description,
       thumbnail,

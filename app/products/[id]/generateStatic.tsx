@@ -11,7 +11,6 @@ export async function generateStaticParams() {
 
     const products = response.data;
 
-    // Returning all elements as requested
     return products.map((product: any) => ({
       id: product.id.toString(),
       title: product.title,

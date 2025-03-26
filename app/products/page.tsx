@@ -112,7 +112,7 @@ export default function ProductsList(){
     name={product.title}
     info={[{ title: 'Description', description: product.short_description }]}
     onClick={() => handleClick(product.id)}
-    liked={Boolean(liked && liked.includes(product.id))}  // Use Boolean() for safe casting
+    liked={Boolean(liked && liked.includes(product.id))} 
     onToggleLiked={() => toggleLiked(product.id)}
     onRemove={() => removeCard(product.id)}
   />
