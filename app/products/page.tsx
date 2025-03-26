@@ -76,7 +76,7 @@ export default function ProductsList(){
 
   const allProducts = [...games, ...createdProducts];
 
-  const handleClick = (id:any) => {
+  const handleClick = (id:string) => {
     router.push(`/products/${id}`);
   };
 
@@ -94,6 +94,8 @@ export default function ProductsList(){
     ? allProducts.filter((product) => liked.includes(product.id))
     : allProducts;
 
+    
+
     return (
       <div>
         <ButtonWrapper>
@@ -103,18 +105,18 @@ export default function ProductsList(){
       <CreateNewCard></CreateNewCard>
       </ButtonWrapper>
       <List>
-        {displayedProducts.map((product) => (
-          <Card
-            key={product.id}
-            img={product.thumbnail}
-            name={product.title}
-            info={[{ title: 'Description', description: product.short_description }]}
-            onClick={() => handleClick(product.id)}
-            liked={liked.includes(product.id)}
-            onToggleLiked={() => toggleLiked(product.id)}
-            onRemove={() => removeCard(product.id)}
-          />
-        ))}
+      {displayedProducts.map((product) => (
+  <Card
+    key={product.id}
+    img={product.thumbnail}
+    name={product.title}
+    info={[{ title: 'Description', description: product.short_description }]}
+    onClick={() => handleClick(product.id)}
+    liked={Boolean(liked && liked.includes(product.id))}  // Use Boolean() for safe casting
+    onToggleLiked={() => toggleLiked(product.id)}
+    onRemove={() => removeCard(product.id)}
+  />
+))}
       </List>
     </div>
   );

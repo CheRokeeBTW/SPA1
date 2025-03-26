@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { IoClose } from 'react-icons/io5';
 import { Button } from './RemoveButton';
 
-// Styled Components
+
 const Wrapper = styled.article`
   border-radius: 12px;
   background-color: #f4f4f9;
@@ -70,11 +70,11 @@ const LikeIcon = styled.div`
   margin-top: 10px;
 `;
 
-const ImageButton = styled.button<{ liked: boolean }>`
+const ImageButton = styled.button<{ $liked: boolean }>`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: ${({ liked }) => (liked ? 'yellow' : 'transparent')};
+  background-color: ${({ $liked }) => ($liked ? 'yellow' : 'transparent')};
   background-image: url('/images/like-removebg-preview.png');
   background-size: cover;
   background-position: center;
@@ -117,9 +117,9 @@ const Card: React.FC<CardProps> = ({ img, name, info, liked, onClick, onToggleLi
       </Button>
       <CardImage src={img} alt={name} />
       <CardBody>
-        <LikeIcon>
-          <ImageButton liked={liked} onClick={toggleLike} />
-        </LikeIcon>
+      <LikeIcon>
+      <ImageButton $liked={!!liked} onClick={toggleLike} />
+</LikeIcon>
         <CardTitle>{name}</CardTitle>
         <CardList>
           {info.map((el) => (

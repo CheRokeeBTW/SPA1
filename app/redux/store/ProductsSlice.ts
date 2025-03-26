@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Product {
-  id: number;
+  id: string;
   title: string;
   short_description: string;
   thumbnail: string;

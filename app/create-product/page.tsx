@@ -76,9 +76,9 @@ const CreateProduct = () => {
       alert('All fields are required!');
       return;
     }
-
+  
     const newProduct = {
-      id: Date.now(),
+      id: String(Date.now()),  // Ensure the ID is a string
       title,
       short_description: description,
       thumbnail,
@@ -87,11 +87,11 @@ const CreateProduct = () => {
       publisher,
       release_date: releaseDate,
     };
-
+  
     dispatch(addProduct(newProduct)); 
     router.push('/products'); 
   };
-
+  
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit}>

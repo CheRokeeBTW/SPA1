@@ -4,13 +4,14 @@ export async function generateStaticParams() {
   try {
     const response = await axios.get('https://mmo-games.p.rapidapi.com/games', {
       headers: {
-        'X-RapidAPI-Key': '2aebb80693msh933786e73da56d5p1a2cbajsnd03f5955141c', 
+        'X-RapidAPI-Key': '2aebb80693msh933786e73da56d5p1a2cbajsnd03f5955141c',
         'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com',
       },
     });
 
     const products = response.data;
 
+    // Returning all elements as requested
     return products.map((product: any) => ({
       id: product.id.toString(),
       title: product.title,
