@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { IoClose } from 'react-icons/io5';
+import { IoHeartSharp } from "react-icons/io5";
 import { Button } from './RemoveButton';
 
 
@@ -75,7 +76,6 @@ const ImageButton = styled.button<{ $liked: boolean }>`
   height: 30px;
   border-radius: 50%;
   background-color: ${({ $liked }) => ($liked ? 'yellow' : 'transparent')};
-  background-image: url('/images/like-removebg-preview.png');
   background-size: cover;
   background-position: center;
   border: none;
@@ -118,7 +118,9 @@ const Card: React.FC<CardProps> = ({ img, name, info, liked, onClick, onToggleLi
       <CardImage src={img} alt={name} />
       <CardBody>
       <LikeIcon>
-      <ImageButton $liked={!!liked} onClick={toggleLike} />
+      <ImageButton $liked={!!liked} onClick={toggleLike}>
+      <IoHeartSharp />
+        </ImageButton>
 </LikeIcon>
         <CardTitle>{name}</CardTitle>
         <CardList>
